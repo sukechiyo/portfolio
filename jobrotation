@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ja">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="utf-8">
+<title>Transfer Reason</title>
+<head>
+	<link href="https://fonts.googleapis.com/css?family=Racing+Sans+One" rel="stylesheet">
+	<style>
+		/* reset */
+		html,body,div,ul,li,h1,h2,h3,p {
+			margin: 0;
+			padding: 0;
+		}
+
+		li {
+			list-style-type: none;
+		}
+
+		a {
+			text-decoration: none;
+		}
+
+
+		/* common */
+		html,body {
+			height: 100%;
+		}
+
+		body {
+			width: 100%;
+			position: relative;
+			overflow-x: hidden;
+			font-family: 'Racing Sans One', cursive;
+			font-size: 14px;
+		}
+
+		.blcNavList {
+			background: rgba(28,28,28,0.5);
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100vw;
+			height: 50px;
+			z-index: 10;
+		}
+
+		.blcNavListInner {
+			max-width: 980px;
+			height: 50px;
+			margin: 0 auto;
+			font-size: 0;
+		}
+
+		.elNavList {
+			display: inline-block;
+			width: 25%;
+			box-sizing: border-box;
+			padding-right: 5%;
+			font-size: 20px;
+		}
+
+		.elNavList:last-child {
+			padding-right: 0;
+		}
+
+		.elNavList a {
+			color: #ffffff;
+			line-height: 50px;
+			width: 100%;
+			opacity: 0.6;
+		}
+
+		.elCurrent a {
+			opacity: 1;
+		}
+
+
+		.blcDisplay {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: calc(100% + 34px);
+			height: 100%;
+			overflow-y: auto;
+		}
+
+		.js-Parallax {
+			position: relative;
+			width: 100vw;
+			height: 100vh;
+		}
+
+
+		/* First */
+		.blcFirst {
+			background: #1c1c1c;
+			width: 100vw;
+			height: 100vh;
+			position: relative;
+			color: #ffffff;
+		}
+
+		.blcFirst .blcFirstInner {
+			max-width: 980px;
+			margin: 0 auto;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+		}
+
+		.blcFirst .blcFirstInner h1 {
+			font-size: 2.4rem;
+			letter-spacing: 0.2em;
+			font-weight: normal;
+		}
+
+		.blcFirst .blcFirstInner p {
+			font-size: 1.2rem;
+			letter-spacing: 0.2em;
+			margin-top: 24px;
+		}
+
+
+
+		/* Secod */
+		.blcSecond {
+			background: #1F91BE;
+			width: 100vw;
+			height: 100vh;
+		}
+
+		/* Third */
+		.blcThird {
+			background: #E06A3B;
+			width: 100vw;
+			height: 100vh;
+		}
+
+
+	</style>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script>
+		$(function(){
+
+			// viewportの高さ取得
+			var vph = $(window).height();
+			console.log(vph);
+
+			// スクロール処理
+			$('.blcDisplay').scroll(function() {
+
+				var sd = $(this).scrollTop();
+				console.log(sd);
+
+			});
+
+
+			// 1枚目のコンテンツ高さ取得
+			var cf = $('.blcFirstInner'),
+				cfw = cf.width() / 2 * -1,
+				cfh = cf.height() / 2 * -1;
+
+			cf.css({
+				marginTop: cfh,
+				marginLeft: cfw
+			});
+
+
+
+
+		});
+
+	</script>
+</head>
+<body>
+	<header>
+		<nav>
+			<div class="blcNavList">
+				<ul class="blcNavListInner">
+					<li class="elNavList elCurrent"><a href="top">LOGO</a></li>
+					<li class="elNavList"><a href="#top">A</a></li>
+					<li class="elNavList"><a href="#second">B</a></li>
+					<li class="elNavList"><a href="#third">C</a></li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+
+	<main>
+		<div class="blcDisplay">
+			<div class="js-Parallax">
+				<div class="blcFirst" id="top">
+					<div class="blcFirstInner">
+						<h1>Why do you wish to transfer to XXX?</h1>
+						<p class="elFistComplement">THE PRESENTATION FOR ....</p>
+					</div>
+				</div>
+				<div class="blcSecond" id="second">
+
+				</div>
+				<div class="blcThird" id="third">
+
+				</div>
+		  	</div>
+		</div>
+	</main>
+</body>
+</html>
