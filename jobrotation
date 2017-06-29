@@ -142,15 +142,27 @@
 	<script>
 		$(function(){
 
+			// 定義
+			var navList = $(".elNavList");
+
+
 			// viewportの高さ取得
 			var vph = $(window).height();
-			console.log(vph);
 
 			// スクロール処理
 			$('.blcDisplay').scroll(function() {
 
 				var sd = $(this).scrollTop();
-				console.log(sd);
+				if (vph * 2 <= sd) {
+					$(navList).removeClass("elCurrent");
+					$(navList).eq(2).addClass("elCurrent");
+				} else if (vph <= sd) {
+					$(navList).removeClass("elCurrent");
+					$(navList).eq(1).addClass("elCurrent");
+				} else {
+					$(navList).removeClass("elCurrent");
+					$(navList).eq(0).addClass("elCurrent");
+				}
 
 			});
 
