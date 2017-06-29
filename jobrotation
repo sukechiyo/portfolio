@@ -136,6 +136,13 @@
 			height: 100vh;
 		}
 
+		/* Forth */
+		.blcForth {
+			background: #3EBA2B;
+			width: 100vw;
+			height: 100vh;
+		}
+
 
 	</style>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -153,7 +160,10 @@
 			$('.blcDisplay').scroll(function() {
 
 				var sd = $(this).scrollTop();
-				if (vph * 2 <= sd) {
+				if (vph * 3 <= sd) {
+					$(navList).removeClass("elCurrent");
+					$(navList).eq(3).addClass("elCurrent");
+				} else if (vph * 2 <= sd) {
 					$(navList).removeClass("elCurrent");
 					$(navList).eq(2).addClass("elCurrent");
 				} else if (vph <= sd) {
@@ -211,6 +221,9 @@
 
 				</div>
 				<div class="blcThird" id="third">
+
+				</div>
+				<div class="blcForth" id="Forth">
 
 				</div>
 		  	</div>
